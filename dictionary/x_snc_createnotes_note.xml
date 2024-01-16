@@ -1,11 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<database>
-    <element label="Note" max_length="40" name="x_snc_createnotes_note" type="collection">
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element audit="true" db_object_id="014b86da476b31107c7c7748c26d43f8" label="Note" max_length="40" name="x_snc_createnotes_note" type="collection">
         <element default="Enter notes here" label="Note" max_length="4000" name="note" type="string"/>
         <element default="javascript:getNextObjNumberPadded();" display="true" dynamic_default_value="fdcb83a85f220100a9ad2572f2b4773c" label="Number" max_length="40" name="number" type="string" use_dynamic_default="true"/>
-        <element default="New Note" label="Title" max_length="100" name="title" type="string"/>
+        <element default="javascript:current.getTableName();" label="Class" max_length="80" name="sys_class_name" type="sys_class_name"/>
+        <element default="New Note" label="Title" mandatory="true" max_length="100" name="title" type="string"/>
         <element label="User" max_length="32" name="user" reference="sys_user" type="reference"/>
+        <element label="New Audio" max_length="40" name="u_audio_1" type="audio"/>
+        <element attributes="omit_sys_original=true" label="New Currency" max_length="20" name="u_currency_2" type="currency"/>
         <index name="index">
+            <element name="sys_class_name"/>
+        </index>
+        <index name="index2">
             <element name="user"/>
         </index>
     </element>
